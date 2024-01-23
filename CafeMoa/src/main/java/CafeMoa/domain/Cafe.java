@@ -7,13 +7,13 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Cafes")
 
-public class Cafe {
+public class cafe {
     //카페 식별자
     @Id
     @GeneratedValue
@@ -24,12 +24,13 @@ public class Cafe {
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
+
     //카페 이름
-    @Column(name = "cafe_mame", nullable = false, unique = true)
+    @Column(name = "name", nullable = false)
     private String cafeName;
 
     //카페 주소
-    @Column(name = "cafe_address", nullable = false)
+    @Column(name = "address", nullable = false)
     private String cafeAddress;
 
     //오픈 시간
@@ -42,13 +43,13 @@ public class Cafe {
 
     //찜 수
     @Column(name = "favorite_count")
-    private Float favoriteCounts;
+    private int favoriteCounts;
 
     //리뷰들
-    @OneToMany(mappedBy = "cafe_id")
-    private List<Cafe> reviewList;
+    @OneToMany(mappedBy = "cafe")
+    private List<Cafe> reviewList = new ArrayList<>();
 
     //카테고리 목록
-    @OneToMany(mappedBy = "category_id")
-    private List<Category> categoryList;
+    @OneToMany(mappedBy = "cafe")
+    private List<CafeCategory> cafeCategoryList = new ArrayList<>();
 }
