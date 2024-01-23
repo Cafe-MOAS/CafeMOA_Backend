@@ -3,15 +3,15 @@ package CafeMoa.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @Builder
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Members")
 public class Member {
     @Id
     @GeneratedValue
@@ -27,12 +27,12 @@ public class Member {
     @Column(name = "nickname", nullable = false, unique = true)
     private String nickname;
 
-    @OneToMany(mappedBy = "member_id")
-    private List<Cafe> favoriteCafeList;
+    @OneToMany(mappedBy = "member")
+    private List<Cafe> favoriteCafeList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member_id")
-    private List<Review> reviewList;
+    @OneToMany(mappedBy = "member")
+    private List<Review> reviewList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member_id2")
-    private List<Review> likeReviewList;
+    @OneToMany(mappedBy = "member")
+    private List<Review> likeReviewList = new ArrayList<>();
 }
