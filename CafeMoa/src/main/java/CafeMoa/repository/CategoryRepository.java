@@ -1,6 +1,6 @@
 package CafeMoa.repository;
 
-import CafeMoa.domain.Category;
+import CafeMoa.domain.category.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
