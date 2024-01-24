@@ -1,8 +1,10 @@
 package CafeMoa.domain;
 
+import CafeMoa.domain.category.CafeCategory;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class cafe {
+public class Cafe {
     //카페 식별자
     @Id
     @GeneratedValue

@@ -1,10 +1,11 @@
 package CafeMoa.domain;
 
 import java.util.List;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import javax.persistence.*;
+
+import CafeMoa.domain.category.ReviewCategory;
+import jakarta.persistence.*;
+import lombok.*;
+
 @Entity
 @Getter
 @Setter
