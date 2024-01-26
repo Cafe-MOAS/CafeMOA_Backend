@@ -1,14 +1,17 @@
 package CafeMoa.domain.category;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
 @Builder
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
 
     @Id
@@ -19,9 +22,9 @@ public class Category {
     private String tagTitle; // 태그 이름;
 
     @OneToMany(mappedBy = "category")
-    private List<CafeCategory> cafeCategoryList = new ArrayList<>(); // category 를 가지고 있는 카페 목록
+    private List<CafeCategory> cafeCategoryList; // category 를 가지고 있는 카페 목록
 
     @OneToMany(mappedBy = "category")
-    private List<ReviewCategory> reviewCategoryList = new ArrayList<>(); // category 를 가지고 있는 리뷰 목록
+    private List<ReviewCategory> reviewCategoryList; // category 를 가지고 있는 리뷰 목록
 
 }

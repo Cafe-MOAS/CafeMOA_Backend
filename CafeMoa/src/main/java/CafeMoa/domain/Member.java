@@ -2,13 +2,10 @@ package CafeMoa.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +13,7 @@ public class Member {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
-    private Long id;
+    private Long memberId;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -28,11 +25,11 @@ public class Member {
     private String nickname;
 
     @OneToMany(mappedBy = "member")
-    private List<Cafe> favoriteCafeList = new ArrayList<>();
+    private List<Cafe> favoriteCafeList;
 
     @OneToMany(mappedBy = "member")
-    private List<Review> reviewList = new ArrayList<>();
+    private List<Review> reviewList;
 
     @OneToMany(mappedBy = "member")
-    private List<Review> likeReviewList = new ArrayList<>();
+    private List<Review> likeReviewList;
 }

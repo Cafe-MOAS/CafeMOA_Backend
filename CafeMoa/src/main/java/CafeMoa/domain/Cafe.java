@@ -1,24 +1,23 @@
 package CafeMoa.domain;
 
+import CafeMoa.domain.category.CafeCategory;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @Entity
 @Getter
-@Setter
 @Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+public class Cafe {
 
-public class cafe {
     //카페 식별자
     @Id
     @GeneratedValue
     @Column(name = "cafe_id")
-    private Long id;
+    private Long cafeId;
 
     //멤버 id
     @ManyToOne
@@ -43,13 +42,13 @@ public class cafe {
 
     //찜 수
     @Column(name = "favorite_count")
-    private int favoriteCounts;
+    private Integer favoriteCounts;
 
-    //리뷰들
+    //리뷰 목록
     @OneToMany(mappedBy = "cafe")
-    private List<Cafe> reviewList = new ArrayList<>();
+    private List<Review> reviewList;
 
     //카테고리 목록
     @OneToMany(mappedBy = "cafe")
-    private List<CafeCategory> cafeCategoryList = new ArrayList<>();
+    private List<CafeCategory> cafeCategoryList;
 }

@@ -2,10 +2,14 @@ package CafeMoa.domain.category;
 
 import CafeMoa.domain.Review;
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 
 @Entity
 @Getter
+@Builder
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReviewCategory {
     @Id
     @GeneratedValue

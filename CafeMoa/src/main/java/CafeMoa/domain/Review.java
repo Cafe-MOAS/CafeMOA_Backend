@@ -1,20 +1,20 @@
 package CafeMoa.domain;
 
 import java.util.List;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import javax.persistence.*;
+import CafeMoa.domain.category.ReviewCategory;
+import jakarta.persistence.*;
+import lombok.*;
+
 @Entity
 @Getter
-@Setter
 @ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "review_id")
     private Long reviewId;
 
@@ -22,14 +22,14 @@ public class Review {
     private String body;
 
     @Column(name = "like_count")
-    private int likeCount;
+    private Integer likeCount;
 
     @Column(name = "rating", nullable = false)
-    private int rating;
+    private Integer rating;
 
     @OneToMany(mappedBy = "review")
     @Column(name = "category_list")
-    private List<ReviewCategory> reviewcategoryList;
+    private List<ReviewCategory> reviewCategoryList;
 
     @ManyToOne
     @JoinColumn(name = "cafe_id", nullable = false)
