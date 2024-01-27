@@ -20,7 +20,7 @@ public class Cafe {
     @Id
     @GeneratedValue
     @Column(name = "cafe_id")
-    private Long id;
+    private Long cafeId;
 
     //멤버 id
     @ManyToOne
@@ -45,13 +45,13 @@ public class Cafe {
 
     //찜 수
     @Column(name = "favorite_count")
-    private int favoriteCounts;
+    private Integer favoriteCounts;
 
-    //리뷰들
+    //리뷰 목록
     @OneToMany(mappedBy = "cafe")
-    private List<Cafe> reviewList = new ArrayList<>();
+    private List<Review> reviewList;
 
     //카테고리 목록
     @OneToMany(mappedBy = "cafe")
-    private List<CafeCategory> cafeCategoryList = new ArrayList<>();
+    private List<CafeCategory> cafeCategoryList;
 }
