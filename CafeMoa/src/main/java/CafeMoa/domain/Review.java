@@ -1,6 +1,7 @@
 package CafeMoa.domain;
 
 import java.util.List;
+
 import CafeMoa.domain.category.ReviewCategory;
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +13,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review {
-
     @Id
     @GeneratedValue
     @Column(name = "review_id")
@@ -37,5 +37,5 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "member_id", nullable = false)
-    private Member author;
+    private Member member;
 }
