@@ -4,7 +4,6 @@ import CafeMoa.domain.category.CafeCategory;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

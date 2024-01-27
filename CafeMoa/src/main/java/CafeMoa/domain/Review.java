@@ -37,5 +37,5 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "member_id", nullable = false)
-    private Member author;
+    private Member member;
 }
